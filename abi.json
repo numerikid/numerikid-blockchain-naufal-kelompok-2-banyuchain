@@ -1,0 +1,408 @@
+{
+  "traceability": {
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_product_id",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_process_date",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_location_name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_location_address",
+            "type": "string"
+          },
+          {
+            "internalType": "string[]",
+            "name": "_src_product_id",
+            "type": "string[]"
+          },
+          {
+            "internalType": "string",
+            "name": "_product_type",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_expiry_date",
+            "type": "uint256"
+          }
+        ],
+        "name": "addBasicTraceData",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnableInvalidOwner",
+        "type": "error"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          }
+        ],
+        "name": "OwnableUnauthorizedAccount",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "string",
+            "name": "product_id",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "user_id",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "process_date",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "location_name",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "location_address",
+            "type": "string"
+          }
+        ],
+        "name": "BasicTraceDataAdded",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "string",
+            "name": "product_id",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "user_id",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "product_type",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "expiry_date",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "location_name",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "location_address",
+            "type": "string"
+          }
+        ],
+        "name": "ProducerTraceDataAdded",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "user",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "roleId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "subjectName",
+            "type": "string"
+          }
+        ],
+        "name": "RoleAndUserSet",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_user",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_roleId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_subjectName",
+            "type": "string"
+          }
+        ],
+        "name": "setRoleAndUser",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_product_id",
+            "type": "string"
+          }
+        ],
+        "name": "getTraceData",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "user_id",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "user_address",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "product_id",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "process_date",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "location_name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "location_address",
+            "type": "string"
+          },
+          {
+            "internalType": "string[]",
+            "name": "_src_product_id",
+            "type": "string[]"
+          },
+          {
+            "internalType": "string",
+            "name": "product_type",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "expiry_date",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "SubjectName",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "name": "TraceDataMap",
+        "outputs": [
+          {
+            "internalType": "string",
+            "name": "user_id",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "user_address",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "product_id",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "process_date",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "location_name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "location_address",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "product_type",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "expiry_date",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "UserRole",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "contract_address": "0x2b18A10E66beB70472F43A91dec78B28b11084AD"
+  }
+}
