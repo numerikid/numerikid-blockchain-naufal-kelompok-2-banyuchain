@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BanyuChain - Producer Dashboard</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="images/fox-removebg.png">
+</head>
+<body style="background-color: #F5F5F5;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/img_banyuchainhigh.png" alt="BanyuChain" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-grey" href="index.html">Home</a>
+                    <a class="nav-link active text-black" aria-current="page" href="#">Dashboard</a>
+                    <a class="nav-link text-grey" href="dataMapping.html">Trace Data</a>
+                    <button id="logoutButton" class="btn btn-danger">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3 px-5">
+        <h3 class="fw-bolder text-break">Informasi Pengguna</h3>
+        <table class="table" id="userInfo">
+            <!-- Informasi pengguna akan diisi oleh frontend.js -->
+        </table><br><br>
+
+        <h3 class="fw-bolder mb-3">Metadata Produk</h3>
+        <button class="btn btn-primary float" data-bs-toggle="modal" data-bs-target="#TambahData">Tambah Data Produk</button>
+        <div id="productTable" class="bg-white mt-4">
+            <table class="table table-sm table-bordered">
+                <thead>
+                    <tr class="table-secondary text-center">
+                        <th>Product Id</th>
+                        <th>Process Date</th>
+                        <th>Location Name</th>
+                        <th>Location Address</th>
+                        <th>Source Product Id</th>
+                        <th>Product Type</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Isi tabel produk akan diisi oleh frontend.js -->
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-outline-danger fw-bold float-end px-4 mt-3" id="submitData">Kirim</button><br><br>
+
+        <h3 class="fw-bolder">Blockchain</h3>
+        <div class="bg-white mt-4">
+            <table class="table table-sm table-bordered" id="blockchainTable">
+                <thead>
+                    <tr class="table-secondary text-center">
+                        <th>Status</th>
+                        <th>Block Number</th>
+                        <th>Transaction</th>
+                        <th>Producer Name</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Isi tabel blockchain akan diisi oleh frontend.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data Produk -->
+    <div class="modal fade" id="TambahData" tabindex="-1" aria-labelledby="TambahDataLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="TambahDataLabel">Tambah Data Produk</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="addProductForm">
+                      <div class="mb-3">
+                          <label for="productId" class="form-label">Product ID</label>
+                          <input type="text" class="form-control" id="productId" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="processDate" class="form-label">Process Date</label>
+                          <input type="date" class="form-control" id="processDate" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="locationName" class="form-label">Location Name</label>
+                          <input type="text" class="form-control" id="locationName" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="locationAddress" class="form-label">Location Address</label>
+                          <input type="text" class="form-control" id="locationAddress" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="sourceProductId" class="form-label">Source Product ID</label>
+                          <input type="text" class="form-control" id="sourceProductId">
+                      </div>
+                      <div class="mb-3">
+                          <label for="productType" class="form-label">Product Type</label>
+                          <input type="text" class="form-control" id="productType" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="expiryDate" class="form-label">Expiry Date</label>
+                          <input type="date" class="form-control" id="expiryDate" required>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="reset" form="addProductForm" class="btn btn-danger">Reset</button>
+                  <button type="submit" form="addProductForm" class="btn btn-primary">Tambah</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <footer class="text-center py-3 fixed-bottom" style="background-color: #FFFF;">
+    &copy; 2023 Program MSIB Blockchain with GreatEdu
+  </footer>
+  
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Memasukkan Web3.js -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+  <!-- Frontend JavaScript -->
+  <script src="frontend.js"></script>
+</body>
+</html>  

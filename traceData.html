@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BanyuChain - Product Traceability</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="images/fox-removebg.png">
+</head>
+
+<body style="background-color: #F5F5F5;">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/img_banyuchainhigh.png" alt="BanyuChain" style="height: 40px;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-grey" href="index.html">Home</a>
+                    <a class="nav-link active" href="#">Trace Data</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="fw-bold text-center mb-4">Product Traceability</h2>
+
+        <!-- Form untuk pencarian ID produk -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="traceDataForm">
+                    <div class="mb-3">
+                        <label for="traceDataId" class="form-label">Enter Product ID</label>
+                        <input type="text" class="form-control" id="traceDataId" placeholder="Product ID">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tempat untuk menampilkan hasil pencarian -->
+        <div class="product-trace-info mt-4">
+            <table class="table table-bordered">
+                <tbody id="traceDataInfo">
+                    <!-- Product trace data will be inserted here by frontend.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br><br>
+    <br>
+    <br>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 fixed-bottom" style="background-color: #FFFF;">
+        &copy; 2023 Program MSIB Blockchain with GreatEdu
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Memasukkan Web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+    <!-- Custom Frontend JavaScript -->
+    <script src="frontend.js"></script>
+</body>
+
+</html>

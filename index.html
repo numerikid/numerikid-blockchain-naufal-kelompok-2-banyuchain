@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BanyuChain</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/fox-removebg.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .profile-circle {
+            border-radius: 50%;
+            width: 100px; /* Atur lebar foto */
+            height: 100px; /* Atur tinggi foto agar sama dengan lebar */
+            object-fit: cover; /* Pastikan foto ngefit tanpa terdistorsi */
+            margin-bottom: 10px; /* Jarak antara foto dan teks */
+        }
+        .role-image {
+            width: auto; /* Untuk menghindari stretch, set ke auto */
+            max-width: 25%; /* Pastikan tidak melebihi kontainer */
+            height: auto; /* Tinggi otomatis untuk menjaga aspect ratio */
+            margin-right: 15px; /* Beri ruang antara gambar dan deskripsi */
+        }
+        .zigzag-row {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        .zigzag-row:nth-child(odd) .role-description {
+        order: 1; /* Untuk baris ganjil, ubah urutan deskripsi ke sebelah kiri */
+        margin-right: 0;
+        margin-left: 15px;
+        }
+        .role-description {
+          padding: 20px;
+        }
+        .carousel-caption {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-20%);
+          left: 0;
+          right: 0;
+          color: white;
+          text-align: center;
+        }
+        .carousel-indicators li {
+        text-indent: 0;
+        margin-right: 2px; /* Jarak antar indikator */
+        }
+
+        .carousel-indicators li span {
+        display: block;
+        width: 20px; /* Lebar indikator */
+        color: gray; /* Warna default */
+        text-align: center;
+        }
+
+        .carousel-indicators li.active span {
+        color: white; /* Warna saat aktif */
+        }
+        .dark-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+        .divider {
+        display: inline-block;
+        width: 30px;
+        height: 4px;
+        background-color: #007bff; /* Gunakan kode warna sesuai tema BanyuChain */
+        margin-top: 5px;
+        margin-bottom: 10px;
+        }
+        .section-divider {
+        display: inline-block;
+        width: 30px;
+        height: 4px;
+        background-color: #007bff; /* Kode warna biru */
+        margin-top: 5px;
+        margin-bottom: 10px;
+        }
+      </style>
+</head>
+<body style="background-color: #F5F5F5;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/img_banyuchainhigh.png" alt="BanyuChain" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active text-black" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-grey" href="traceData.html">Trace Data</a>
+                    <button id="connectButton" class="btn btn-primary">Connect</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Carousel with Title -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+    <!-- First Slide -->
+    <div class="carousel-item active">
+        <div class="dark-overlay"></div>
+        <img src="images/air1.jpg" class="d-block w-100" alt="First slide">
+        <div class="carousel-caption">
+          <h2>Blockchain for Mineral Water Traceability</h2>
+        </div>
+      </div>
+  
+      <!-- Second Slide -->
+      <div class="carousel-item">
+        <div class="dark-overlay"></div>
+        <img src="images/air3.jpg" class="d-block w-100" alt="Second slide">
+        <div class="carousel-caption">
+            <h2>Blockchain for Mineral Water Traceability</h2>
+        </div>
+      </div>
+  
+      <!-- Third Slide -->
+      <div class="carousel-item">
+        <div class="dark-overlay"></div>
+        <img src="images/air2.png" class="d-block w-100" alt="Third slide">
+        <div class="carousel-caption">
+            <h2>Blockchain for Mineral Water Traceability</h2>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Carousel Indicators -->
+    <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"><div class="indicator-line"></div></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"><div class="indicator-line"></div></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"><div class="indicator-line"></div></li>
+     </ol>
+  
+
+     <div class="container mt-4 text-center">
+        <h4 class="section-header">About BanyuChain</h4>
+        <div class="divider mx-auto"></div> 
+        <p class="about-content">
+            BanyuChain merupakan terobosan revolusioner di dunia industri air minum kemasan. Dengan pemanfaatan teknologi blockchain, kami membawa transparansi, efisiensi, dan keamanan yang belum pernah ada sebelumnya ke dalam rantai pasok air minum. BanyuChain dirancang untuk memastikan bahwa setiap tetes air yang sampai ke tangan konsumen adalah bukti dari komitmen kami terhadap kualitas dan keberlanjutan.
+        </p> 
+        <br>
+      </div>
+
+     <!-- Bagian Peran Rantai Pasok -->
+     <div class="container mt-4 text-center">
+        <h4>Our Supply Chain Roles</h4>
+        <div class="section-divider mx-auto"></div> <!-- Tanda -- dengan text center dan warna biru -->
+        <p>Berbagai role yang terlibat dalam rantai pasok.</p>
+    </div>
+<br>
+    <div class="container">
+        <!-- Supplier Role -->
+        <div class="zigzag-row d-flex align-items-center mb-4">
+            <img src="images/supplier.jpeg" class="role-image" alt="Peran Supplier">
+            <div class="role-description ms-3">
+              <h5>Supplier</h5>
+              <p>Bertanggung jawab untuk menyediakan sumber air alami, memastikan keaslian dan keberlanjutannya sebelum masuk ke dalam rantai pasok.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- Producer Role -->
+          <div class="zigzag-row d-flex align-items-center mb-4">
+            <img src="images/producer.jpeg" class="role-image" alt="Peran Produsen">
+            <div class="role-description ms-3">
+              <h5>Produsen</h5>
+              <p>Mengelola proses filtrasi, pemurnian, dan pengemasan, mengikuti standar kesehatan yang ketat untuk menghasilkan produk yang aman dan berkualitas.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- Whole Seller Role -->
+          <div class="zigzag-row d-flex align-items-center mb-4">
+            <img src="images/wholeseller.jpeg" class="role-image" alt="Whole Seller">
+            <div class="role-description ms-3">
+              <h5>Whole Seller</h5>
+              <p>Berperan sebagai perantara, membeli air kemasan dalam jumlah besar dan mendistribusikannya ke berbagai outlet ritel atau small seller.</p>
+            </div>
+          </div>
+          <hr>
+          <!-- Small Seller Role -->
+          <div class="zigzag-row d-flex align-items-center mb-4">
+            <img src="images/smallseller.jpeg" class="role-image" alt="Small Seller">
+            <div class="role-description ms-3">
+              <h5>Small Seller</h5>
+              <p>Beroperasi di tingkat ritel untuk menjual air kemasan langsung kepada konsumen.</p>
+            </div>
+          </div>
+    </div>
+
+ <!-- Developer Profiles -->
+<div class="container mt-4 text-center">
+    <h3>Our Team</h3>
+    <div class="section-divider mx-auto"></div> <!-- Tanda -- dengan text center dan warna biru -->
+    <p>Tim ahli di balik BanyuChain</p>
+    <br>
+  
+    <div class="row">
+      <!-- Member 1 -->
+      <div class="col text-center">
+        <img src="images/rina.jpg" alt="Developer 1" class="profile-circle">
+        <p><strong>Rina</strong><br>Project Lead & Documentation<br> Universitas Nusa Mandiri</p>
+      </div>
+      <!-- Member2 -->
+      <div class="col text-center">
+        <img src="images/Rizki.jpeg" alt="Developer 2" class="profile-circle">
+        <p><strong> Aditha H. P.</strong> <br>Web Developer<br> Universitas Airlangga</p>
+      </div>
+      <!-- Member 3-->
+      <div class="col text-center">
+        <img src="images/Habib.jpg" alt="Developer 3" class="profile-circle">
+        <p><strong>Habibullah</strong><br>Smart Contract Developer <br> Universitas Saintek Muhammadiyah</p>
+      </div>
+      <!-- Member 4 -->
+      <div class="col text-center">
+        <img src="images/Leni.jpg" alt="Developer 4" class="profile-circle">
+        <p><strong>Leni Mardian</strong><br>Test Engineer <br> Universitas Tulungagung</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+<!-- Contact Section -->
+<div class="container mt-4 text-center">
+    <h4>Contact</h4>
+    <div class="section-divider mx-auto"></div>
+    <p>Untuk informasi lebih lanjut atau pertanyaan seputar BanyuChain, jangan ragu untuk menghubungi kami:</p>
+    <p>
+        <i class="fas fa-envelope"></i> <!-- Ikon Email -->
+        <a href="mailto:numerikid20@gmail.com">numerikid20@gmail.com</a>
+      </p>
+  </div>
+  <br><br><br>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 fixed-bottom" style="background-color: #FFFF;">
+        &copy; 2023 Program MSIB Blockchain with GreatEdu
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper dan jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Memasukkan Web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+    <!-- Frontend JavaScript -->
+    <script src="frontend.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var navbarLinks = document.querySelectorAll('.nav-link');
+      
+          for (var i = 0; i < navbarLinks.length; i++) {
+            navbarLinks[i].addEventListener('click', function(event) {
+              var target = this.getAttribute('href');
+              if (target.startsWith('#')) {
+                event.preventDefault();
+                document.querySelector(target).scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }
+            });
+          }
+        });
+      </script>
+</body>
+</html>
